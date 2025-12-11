@@ -35,6 +35,13 @@
   const btnRestart = $('btn-restart');
   const btnReturn = $('btn-return');
 
+
+   btnPlay.addEventListener('click', () => {
+    if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+    startGame();
+});
+
+
   // ---- Game variables ----
   let W = canvas.width, H = canvas.height;
   function resizeCanvas(){
@@ -77,8 +84,8 @@
   }
 
   let enemies = [];
-  const MAX_ENEMIES = 15;
-  let spawnTimer = 0;
+  const MAX_ENEMIES = 8;
+  let spawnTimer = 3;
   let spawnInterval = 120; // frames initial
   let baseSpeed = 0.45; // pixels per frame
 
@@ -502,15 +509,4 @@
   });
 
 })();
-
-document.addEventListener("DOMContentLoaded", () => {
-    const playButton = document.getElementById("playButton");
-
-    if (playButton) {
-        playButton.addEventListener("click", () => {
-            startGame();
-        });
-    }
-});
-
 
