@@ -18,7 +18,7 @@
   const screenGame = $('game');
   const overlay = $('overlay');
 
-  const btnPlay = $('btn-play');
+  const btnPlay = $('playButton');
   const btnSettings = $('btn-settings');
   const btnBack = $('btn-back');
   const toggleSfx = $('toggle-sfx');
@@ -502,6 +502,7 @@
   });
 
 })();
+
 
 
 
