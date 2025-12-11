@@ -62,7 +62,7 @@
   const WORD_BUCKET = {
     easy: ["raum","stern","laser","ziel","wort","schiff","nebel","planet","energie","radar"],
     mid:  ["kosmos","system","angriff","schutz","daten","meteor","orbit","korpus","signal","matrix"],
-    hard: ["galaxie","sternbild","explosion","quantum","invasion","transmit","resonanz","Weltanschauung","Verantwortungsbewusstsein"]
+    hard: ["galaxie","sternbild","explosion","quantum","invasion","transmit","resonanz","Weltanschauung"]
   };
 
   function chooseWordByScore(s) {
@@ -512,4 +512,5 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
 
