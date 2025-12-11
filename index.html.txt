@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Wortschütze — Wort-Shooter</title>
+  <meta name="description" content="Wortschütze: Tippe deutsche Wörter, zerstöre sie und überlebe so lange wie möglich. Dunkles Neon-Design." />
+  <meta name="keywords" content="Wortspiel, Shooter, Deutsch, Spiel, HTML5, Wortschütze" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Menu -->
+    <section id="menu" class="screen visible">
+      <h1 id="game-title">Wortschütze</h1>
+      <div class="menu-buttons">
+        <button id="btn-play">Spielen</button>
+        <button id="btn-settings">Einstellungen</button>
+      </div>
+      <p class="hint">Tippe die Buchstaben der Wörter auf der Leinwand. Falsche Buchstaben haben keine Wirkung.</p>
+    </section>
+
+    <!-- Einstellungen -->
+    <section id="settings" class="screen">
+      <h2>Einstellungen</h2>
+      <div class="setting-row">
+        <label><input type="checkbox" id="toggle-sfx" checked /> Soundeffekte (SFX)</label>
+      </div>
+      <div class="setting-row">
+        <label><input type="checkbox" id="toggle-music" checked /> Hintergrundmusik</label>
+      </div>
+      <div class="menu-buttons">
+        <button id="btn-back">Zurück</button>
+      </div>
+    </section>
+
+    <!-- Jeu -->
+    <section id="game" class="screen">
+      <div id="hud-top">
+        <div id="score">Punkte: 0</div>
+        <div id="best">Bestleistung: 0</div>
+      </div>
+
+      <div id="canvas-wrap">
+        <canvas id="gameCanvas" width="900" height="600"></canvas>
+        <div id="instructions">Tippe die Buchstaben. Zerstöre Wörter, bevor sie dein Schiff erreichen.</div>
+      </div>
+
+      <div id="hud-bottom">
+        <div id="controls-hint">Drücke Escape für Menü</div>
+      </div>
+    </section>
+
+    <!-- Game over overlay -->
+    <div id="overlay" class="hidden">
+      <div id="overlay-card">
+        <h2 id="overlay-title">Spiel vorbei</h2>
+        <p id="overlay-score">Punkte: 0</p>
+        <p id="overlay-best">Bestleistung: 0</p>
+        <div class="menu-buttons">
+          <button id="btn-restart">Neu starten</button>
+          <button id="btn-return">Zum Menü</button>
+        </div>
+      </div>
+    </div>
+
+    <footer id="footer">Wortschütze — minimalistisches Neon-Shooter-Spiel · Kein Urheberrecht</footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
