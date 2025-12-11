@@ -50,14 +50,6 @@
   let score = 0;
   let best = parseInt(localStorage.getItem('wortschuetze_best') || "0", 10);
 
-   (() => {
-    // ... tout ton code ...
-    function startGame() { ... }
-
-    // expose pour le bouton
-    window.startGame = startGame;
-})();
-
   // ---- Player (stationary ship) ----
   const ship = {
     x: W / 2,
@@ -510,5 +502,6 @@
   });
 
 })();
+
 
 
