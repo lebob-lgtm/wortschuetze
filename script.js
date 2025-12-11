@@ -290,7 +290,7 @@
     score += 0.02; // continuous small increment for survival
     // update HUD
     scoreEl.textContent = `Punkte: ${Math.floor(score)}`;
-    bestEl.textContent = `Bestleistung: ${best}`;
+     bestEl.textContent = `Bestleistung: ${best}`;
   }
 
   // draw neon style
@@ -430,7 +430,7 @@
     // show overlay with german text
     overlayTitle.textContent = 'Spiel vorbei';
     overlayScore.textContent = `Punkte: ${srounded}`;
-    overlayBest.textContent = `Bestleistung: ${best}`;
+     bestEl.textContent = `Bestleistung: ${best}`;
     showOverlay();
     // stop music?
     stopMusic();
@@ -502,6 +502,7 @@
   });
 
 })();
+
 
 
 
