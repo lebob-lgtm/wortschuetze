@@ -35,13 +35,6 @@
   const btnRestart = $('btn-restart');
   const btnReturn = $('btn-return');
 
-
-   btnPlay.addEventListener('click', () => {
-    if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
-    startGame();
-});
-
-
   // ---- Game variables ----
   let W = canvas.width, H = canvas.height;
   function resizeCanvas(){
@@ -56,6 +49,14 @@
   let gameOver = false;
   let score = 0;
   let best = parseInt(localStorage.getItem('wortschuetze_best') || "0", 10);
+
+   (() => {
+    // ... tout ton code ...
+    function startGame() { ... }
+
+    // expose pour le bouton
+    window.startGame = startGame;
+})();
 
   // ---- Player (stationary ship) ----
   const ship = {
@@ -509,4 +510,5 @@
   });
 
 })();
+
 
