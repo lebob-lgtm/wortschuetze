@@ -49,7 +49,9 @@
   let gameOver = false;
   let score = 0;
   let best = parseInt(localStorage.getItem('wortschuetze_best') || "0", 10);
-
+   
+   window.dispatchEvent(new Event('resize'));
+   
   // ---- Player (stationary ship) ----
   const ship = {
     x: W / 2,
@@ -526,6 +528,7 @@
   });
 
 })();
+
 
 
 
