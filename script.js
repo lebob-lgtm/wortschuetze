@@ -61,7 +61,7 @@
   // ---- Enemy words (German, ASCII-friendly: no ä/ö/ü/ß) ----
   const WORD_BUCKET = {
     easy: ["raum","stern","laser","ziel","wort","schiff","nebel","planet","energie","radar"],
-    mid:  ["kosmos","system","angriff","schutz","daten","meteor","orbit","korpus","signal","matrix"],
+    mid:  ["kosmos","system","angriff","schutz","daten","meteor","lernen","korpus","signal","arbeiten"],
     hard: ["galaxie","sternbild","explosion","quantum","invasion","transmit","resonanz","Weltanschauung"]
   };
 
@@ -78,9 +78,9 @@
 
   let enemies = [];
   const MAX_ENEMIES = 8;
-  let spawnTimer = 3;
-  let spawnInterval = 120; // frames initial
-  let baseSpeed = 0.45; // pixels per frame
+  let spawnTimer = 5;
+  let spawnInterval = 130; // frames initial
+  let baseSpeed = 0.35; // pixels per frame
 
   // ---- Audio: WebAudio synth for SFX and mellow background ----
   const AudioCtx = window.AudioContext || window.webkitAudioContext;
@@ -234,7 +234,8 @@
         enemies = enemies.filter(e => e !== target);
       }
     } else {
-      // wrong letter -> nothing
+      // wrong letter -> -5 points
+       score -= 5;
       // no penalty
     }
   }
@@ -502,6 +503,7 @@
   });
 
 })();
+
 
 
 
