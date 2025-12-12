@@ -60,21 +60,38 @@
 
   // ---- Enemy words (German, ASCII-friendly: no ä/ö/ü/ß) ----
   const WORD_BUCKET = {
-    easy: ["raum","stern","laser","ziel","wort","schiff","nebel","planet","energie","radar"],
+    easy: ["raum","stern","laser","ziel","wort","schiff","nebel","planet","energie","radar","tisch"],
     mid:  ["kosmos","system","angriff","schutz","daten","meteor","lernen","korpus","signal","arbeiten"],
-    hard: ["galaxie","sternbild","explosion","quantum","invasion","transmit","resonanz","Weltanschauung"]
+    hard: ["galaxie","sternbild","explosion","quantum","invasion","","transmit","resonanz","Weltanschauung"]
+     extreme: ["schulveranstaltungsplanungsgesellschaft"]
   };
 
   function chooseWordByScore(s) {
-    // as score increases, choose harder words
-    if (s < 50) return WORD_BUCKET.easy[Math.floor(Math.random()*WORD_BUCKET.easy.length)];
-    if (s < 200) {
-      const pool = WORD_BUCKET.easy.concat(WORD_BUCKET.mid);
-      return pool[Math.floor(Math.random()*pool.length)];
+
+    if (s < 50) {
+        return WORD_BUCKET.easy[Math.floor(Math.random() * WORD_BUCKET.easy.length)];
     }
-    const pool = WORD_BUCKET.easy.concat(WORD_BUCKET.mid).concat(WORD_BUCKET.hard);
-    return pool[Math.floor(Math.random()*pool.length)];
-  }
+
+    if (s < 200) {
+        const pool = WORD_BUCKET.easy.concat(WORD_BUCKET.mid);
+        return pool[Math.floor(Math.random() * pool.length)];
+    }
+
+    if (s < 350) {
+        const pool = WORD_BUCKET.easy
+            .concat(WORD_BUCKET.mid)
+            .concat(WORD_BUCKET.hard);
+        return pool[Math.floor(Math.random() * pool.length)];
+    }
+
+    // 👉 à partir de 350 → inclure extreme
+    const pool = WORD_BUCKET.easy
+        .concat(WORD_BUCKET.mid)
+        .concat(WORD_BUCKET.hard)
+        .concat(WORD_BUCKET.extreme);
+
+    return pool[Math.floor(Math.random() * pool.length)];
+}
 
   let enemies = [];
   const MAX_ENEMIES = 8;
@@ -239,7 +256,7 @@
   } 
   // ❌ MAUVAISE LETTRE → pénalité
   else {
-    score -= 5;
+    score -= 2;
     if (score < 0) score = 0;
   }
 }
@@ -506,6 +523,7 @@
   });
 
 })();
+
 
 
 
