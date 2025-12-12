@@ -63,7 +63,8 @@
     easy: ["raum","stern","laser","ziel","wort","schiff","nebel","planet","energie","radar","tisch"],
     mid:  ["kosmos","system","angriff","schutz","daten","meteor","lernen","korpus","signal","arbeiten"],
     hard: ["galaxie","sternbild","explosion","quantum","invasion","","transmit","resonanz","Weltanschauung"]
-     extreme: ["schulveranstaltungsplanungsgesellschaft"]
+     extreme: ["schulveranstaltungsplanungsgesellschaft","berufsausbildungsvorbereitungsmassnahmenverordnung",
+               "lehrkräftefortbildungsprüfungskommission","studentenkrankenversicherungspflicht","Arbeitsplatzqualifizierungsprogramm"]
   };
 
   function chooseWordByScore(s) {
@@ -77,7 +78,7 @@
         return pool[Math.floor(Math.random() * pool.length)];
     }
 
-    if (s < 350) {
+    if (s < 555) {
         const pool = WORD_BUCKET.easy
             .concat(WORD_BUCKET.mid)
             .concat(WORD_BUCKET.hard);
@@ -523,6 +524,7 @@
   });
 
 })();
+
 
 
 
