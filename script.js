@@ -234,9 +234,9 @@
         enemies = enemies.filter(e => e !== target);
       }
     } else {
-      // wrong letter -> -5 points
-       score -= 5;
-      // no penalty
+      // wrong letter -> -5 points 
+       score -=5;
+       if (score < 0) score = 0;
     }
   }
 
@@ -503,6 +503,7 @@
   });
 
 })();
+
 
 
 
