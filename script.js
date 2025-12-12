@@ -202,44 +202,47 @@
   });
 
   function handleTypedLetter(letter) {
-    // ensure audio context resumed on first user interaction (for autoplay policies)
-    if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+  // audio context resume on first key press
+  if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
 
-    const target = currentTarget();
-    if (!target) return; // nothing to do
+  const target = currentTarget();
+  if (!target) return;
 
-    // compare with first letter of remaining string
-    if (target.remaining.length === 0) return;
-    const needed = target.remaining.charAt(0).toLowerCase();
-    if (letter === needed) {
-      // remove first char
-      target.remaining = target.remaining.substring(1);
-      // create laser visual
-      lasers.push({
-        x1: ship.x,
-        y1: ship.y - 6,
-        x2: target.x + target.w/2,
-        y2: target.y + target.h/2,
-        ttl: 10
-      });
-      playLaser();
-      // small speed up for challenge
-      // if word destroyed
-      if (target.remaining.length === 0) {
-        // explosion effect
-        playExplosion();
-        // assign score
-        score += 5;
-        // remove enemy
-        enemies = enemies.filter(e => e !== target);
-      }
-    } else {
-      // wrong letter -> -5 points 
-       score -=5;
-       if (score < 0) score = 0;
+  if (target.remaining.length === 0) return;
+
+  const needed = target.remaining.charAt(0).toLowerCase();
+
+  // ✅ BONNE LETTRE
+  if (letter === needed) {
+
+    // retirer la première lettre
+    target.remaining = target.remaining.substring(1);
+
+    // Laser visuel
+    lasers.push({
+      x1: ship.x,
+      y1: ship.y - 6,
+      x2: target.x + target.w / 2,
+      y2: target.y + target.h / 2,
+      ttl: 10
+    });
+
+    playLaser();
+
+    // Mot terminé → explosion + score + suppression du mot
+    if (target.remaining.length === 0) {
+      playExplosion();
+      score += 5;
+      enemies = enemies.filter(e => e !== target);
     }
-  }
 
+  } 
+  // ❌ MAUVAISE LETTRE → pénalité
+  else {
+    score -= 5;
+    if (score < 0) score = 0;
+  }
+}
   // ---- Spawn / update / draw ----
   function spawnEnemy() {
     if (enemies.length >= MAX_ENEMIES) return;
@@ -503,6 +506,7 @@
   });
 
 })();
+
 
 
 
