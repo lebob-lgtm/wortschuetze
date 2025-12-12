@@ -63,8 +63,7 @@
     easy: ["raum","stern","laser","ziel","wort","schiff","nebel","planet","energie","radar","tisch"],
     mid:  ["kosmos","system","angriff","schutz","daten","meteor","lernen","korpus","signal","arbeiten"],
     hard: ["galaxie","sternbild","explosion","quantum","invasion","","transmit","resonanz","Weltanschauung"]
-     extreme: ["schulveranstaltungsplanungsgesellschaft","berufsausbildungsvorbereitungsmassnahmenverordnung",
-               "lehrkräftefortbildungsprüfungskommission","studentenkrankenversicherungspflicht","Arbeitsplatzqualifizierungsprogramm"]
+     extreme: ["schulveranstaltungsplanungsgesellschaft","berufsausbildungsvorbereitungsmassnahmenverordnung","lehrkräftefortbildungsprüfungskommission","studentenkrankenversicherungspflicht","Arbeitsplatzqualifizierungsprogramm"]
   };
 
   function chooseWordByScore(s) {
@@ -524,6 +523,7 @@
   });
 
 })();
+
 
 
 
