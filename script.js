@@ -254,7 +254,7 @@
     // Mot terminé → explosion + score + suppression du mot
     if (target.remaining.length === 0) {
       playExplosion();
-      score += 500;
+      score += 5;
       enemies = enemies.filter(e => e !== target);
     }
 
@@ -528,6 +528,7 @@
   });
 
 })();
+
 
 
 
