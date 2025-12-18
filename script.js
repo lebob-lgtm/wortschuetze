@@ -518,11 +518,6 @@ setTimeout(() => {
   showScreen('menu');
 }, 5000);
 
-   #splash:not(.visible) {
-  pointer-events: none;
-}
-
-
 
   // ---- Main loop ----
   function loop() {
@@ -544,6 +539,7 @@ setTimeout(() => {
   });
 
 })();
+
 
 
 
