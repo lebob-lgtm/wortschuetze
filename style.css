@@ -50,3 +50,64 @@ label{cursor:pointer}
   .menu-buttons{flex-direction:column;width:80%}
   button{width:100%}
 }
+
+#splash {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  background:
+    radial-gradient(circle at 30% 20%, rgba(0,255,213,0.08), transparent 35%),
+    radial-gradient(circle at 80% 80%, rgba(255,93,244,0.06), transparent 40%),
+    linear-gradient(180deg, #030412 0%, #061229 70%);
+
+  text-align: center;
+}
+
+.splash-content {
+  max-width: 600px;
+  padding: 24px;
+}
+
+.splash-content h1 {
+  font-size: 2.8rem;
+  margin-bottom: 18px;
+  color: var(--neon-cyan);
+  text-shadow:
+    0 0 10px rgba(0,255,213,0.4),
+    0 0 30px rgba(0,255,213,0.15);
+}
+
+.splash-content p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.splash-content strong {
+  color: var(--neon-green);
+  text-shadow: 0 0 8px rgba(124,255,107,0.4);
+}
+
+/* animation douce d'apparition */
+#splash.visible {
+  animation: splashFadeIn 0.8s ease-out both;
+}
+
+@keyframes splashFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
