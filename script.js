@@ -516,7 +516,7 @@ showScreen('splash');
 
 setTimeout(() => {
   showScreen('menu');
-}, 5);
+}, 5000);
 
 
   // ---- Main loop ----
@@ -539,6 +539,7 @@ setTimeout(() => {
   });
 
 })();
+
 
 
 
