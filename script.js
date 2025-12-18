@@ -47,10 +47,37 @@
   window.addEventListener('resize', resizeCanvas);
   resizeCanvas();
 
+   document.addEventListener('keydown', (ev) => {
+
+  // ---- Cheat code listener (toujours actif) ----
+  const key = ev.key.toLowerCase();
+
+  cheatBuffer.push(key);
+  if (cheatBuffer.length > CHEAT_CODE.length) {
+    cheatBuffer.shift();
+  }
+
+  if (CHEAT_CODE.every((v, i) => v === cheatBuffer[i])) {
+    CHEAT_MODE = !CHEAT_MODE;
+    console.warn('CHEAT MODE:', CHEAT_MODE ? 'ACTIVÉ' : 'DÉSACTIVÉ');
+    cheatBuffer = [];
+  }
+
+  // ---- logique normale ensuite ----
+
+
   let running = false;
   let gameOver = false;
   let score = 0;
   let best = parseInt(localStorage.getItem('wortschuetze_best') || "0", 10);
+   
+   // ---- Cheat mode (secret) ----
+let CHEAT_MODE = false;
+
+// séquence secrète (à TOI seul)
+const CHEAT_CODE = ['0','8','0','8','2','0','0','8'];
+let cheatBuffer = [];
+
    
    window.dispatchEvent(new Event('resize'));
    
@@ -256,7 +283,7 @@
     // Mot terminé → explosion + score + suppression du mot
     if (target.remaining.length === 0) {
       playExplosion();
-      score += 5;
+      score += CHEAT_MODE ? 999999 : 5;
       enemies = enemies.filter(e => e !== target);
     }
 
@@ -539,6 +566,7 @@ setTimeout(() => {
   });
 
 })();
+
 
 
 
