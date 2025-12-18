@@ -1,5 +1,3 @@
-"use strict";
-
 /* Wortschütze — komplett (Deutsch)
    - Spielprinzip: Wörter (Feinde) nähern sich. Tippe Buchstaben (in der richtigen Reihenfolge),
      um Buchstaben vom aktuellen Wort zu entfernen. Vollständig zerstörtes Wort = +5 Punkte.
@@ -568,6 +566,7 @@ setTimeout(() => {
   });
 
 })();
+
 
 
 
