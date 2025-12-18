@@ -17,6 +17,8 @@
   const screenSettings = $('settings');
   const screenGame = $('game');
   const overlay = $('overlay');
+   const screenSplash = $('splash');
+
 
   const btnPlay = $('playButton');
   const btnSettings = $('btn-settings');
@@ -528,6 +530,7 @@
   });
 
 })();
+
 
 
 
