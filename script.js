@@ -44,42 +44,16 @@
     const ratio = canvas.clientWidth / W;
     canvas.style.height = (H * ratio) + 'px';
   }
-  window.addEventListener('resize', resizeCanvas);
-  resizeCanvas();
-
-   document.addEventListener('keydown', (ev) => {
-
-  // ---- Cheat code listener (toujours actif) ----
-  const key = ev.key.toLowerCase();
-
-  cheatBuffer.push(key);
-  if (cheatBuffer.length > CHEAT_CODE.length) {
-    cheatBuffer.shift();
-  }
-
-  if (CHEAT_CODE.every((v, i) => v === cheatBuffer[i])) {
-    CHEAT_MODE = !CHEAT_MODE;
-    console.warn('CHEAT MODE:', CHEAT_MODE ? 'ACTIVÉ' : 'DÉSACTIVÉ');
-    cheatBuffer = [];
-  }
-
-  // ---- logique normale ensuite ----
-
 
   let running = false;
   let gameOver = false;
   let score = 0;
   let best = parseInt(localStorage.getItem('wortschuetze_best') || "0", 10);
    
-   // ---- Cheat mode (secret) ----
+  // ---- Cheat mode (secret) ----
 let CHEAT_MODE = false;
-
-// séquence secrète (à TOI seul)
 const CHEAT_CODE = ['0','8','0','8','2','0','0','8'];
 let cheatBuffer = [];
-
-   
-   window.dispatchEvent(new Event('resize'));
    
   // ---- Player (stationary ship) ----
   const ship = {
@@ -233,24 +207,41 @@ let cheatBuffer = [];
   // visual lasers active frames
   let lasers = []; // {x1,y1,x2,y2,ttl}
 
-  // keyboard
   document.addEventListener('keydown', (ev) => {
-    if (!running) {
-      // if not running and key is Escape, go to menu
-      if (ev.code === 'Escape') showMenu();
-      return;
-    }
-    if (ev.key === 'Escape') {
-      // pause to menu
-      endGameToMenu();
-      return;
-    }
-    // only accept single character letters (a-z)
-    const k = ev.key.toLowerCase();
-    if (k.length !== 1) return;
-    if (k < 'a' || k > 'z') return;
-    handleTypedLetter(k);
-  });
+
+  // ---- Cheat code listener (secret, invisible) ----
+  const key = ev.key.toLowerCase();
+  cheatBuffer.push(key);
+  if (cheatBuffer.length > CHEAT_CODE.length) {
+    cheatBuffer.shift();
+  }
+
+  if (CHEAT_CODE.every((v, i) => v === cheatBuffer[i])) {
+    CHEAT_MODE = !CHEAT_MODE;
+    console.warn(
+      'CHEAT MODE:',
+      CHEAT_MODE ? 'ACTIVÉ' : 'DÉSACTIVÉ'
+    );
+    cheatBuffer = [];
+  }
+
+  // ---- logique normale du jeu (inchangée) ----
+  if (!running) {
+    if (ev.code === 'Escape') showScreen('menu');
+    return;
+  }
+
+  if (ev.key === 'Escape') {
+    endGameToMenu();
+    return;
+  }
+
+  const k = ev.key.toLowerCase();
+  if (k.length !== 1) return;
+  if (k < 'a' || k > 'z') return;
+
+  handleTypedLetter(k);
+});
 
   function handleTypedLetter(letter) {
   // audio context resume on first key press
@@ -566,6 +557,7 @@ setTimeout(() => {
   });
 
 })();
+
 
 
 
