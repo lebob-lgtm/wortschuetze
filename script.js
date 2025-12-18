@@ -502,13 +502,22 @@
     if (musicEnabled) startMusic(); else stopMusic();
   });
 
-  function showScreen(name) {
-    [screenMenu, screenSettings, screenGame].forEach(s => s.classList.remove('visible'));
-    if (name === 'menu') screenMenu.classList.add('visible');
-    if (name === 'settings') screenSettings.classList.add('visible');
-    if (name === 'game') screenGame.classList.add('visible');
-  }
+function showScreen(name) {
+  [screenSplash, screenMenu, screenSettings, screenGame]
+    .forEach(s => s.classList.remove('visible'));
+
+  if (name === 'splash') screenSplash.classList.add('visible');
+  if (name === 'menu') screenMenu.classList.add('visible');
+  if (name === 'settings') screenSettings.classList.add('visible');
+  if (name === 'game') screenGame.classList.add('visible');
+}
+
+showScreen('splash');
+
+setTimeout(() => {
   showScreen('menu');
+}, 5000);
+
 
   // ---- Main loop ----
   function loop() {
@@ -530,6 +539,7 @@
   });
 
 })();
+
 
 
 
