@@ -65,11 +65,11 @@ let cheatBuffer = [];
 
   // ---- Enemy words (German, ASCII-friendly: no ä/ö/ü/ß) ----
   const WORD_BUCKET = {
-  easy: ["raum","stern","laser","ziel","wort","schiff","nebel","planet","energie","radar","tisch"],
+  easy: ["raum","stern","laser","ziel","wort","schiff","nebel","planet","energie","radar","tisch","buch","test","plan","raum","korb","lager","korb","chef","lief","route","fach","mappe","rolle","pack","auto","zeit","send","liste","ware","tank","netz","band","zone","tor","note","stift","regal","kurs","zug","boxe"],
 
-  mid: ["kosmos","system","angriff","schutz","daten","meteor","lernen","korpus","signal","arbeiten"],
+   mid: ["kosmos","system","angriff","schutz","daten","meteor","lernen","korpus","signal","arbeiten","lager","fracht","packen","versand","schule","kursus","noten","facher","rolle","planen","tisch","stuhl","mappe","stift","block","ordnung","sendung","kisten","palette","route","liefer","kunde","waren","lagerung","kontrol","archiv","projekt","arbeite","team","logist"],
 
-  hard: ["galaxie","sternbild","explosion","quantum","invasion","transmit","resonanz","weltanschauung"],
+  hard: ["galaxie","sternbild","explosion","quantum","invasion","transmit","resonanz","weltanschauung","lieferkette","versandgut","transport","schulmaterial","bestandsplan","logistikzentrum","arbeitsprozess","projektarbeit","unterricht","schulaufgabe","stundenplan","lehrmittel","klassenarbeit","fachunterricht","lernplattform","noteintrag","bibliothek","schreibwaren","organisation","arbeitsblatt","pausenhof","unterrichtstag","zeugnisnote","schulordnung","kursangebot","lernfortschritt","schulverwaltung","fachbereich","lehrplan","bildungseinheit"],
 
   extreme: ["schulveranstaltungsplanungsgesellschaft","berufsausbildungsvorbereitungsmassnahmenverordnung","lehrkraeftefortbildungspruefungskommission","studentenkrankenversicherungspflicht","Arbeitsplatzqualifizierungsprogramm"]
 };
@@ -557,6 +557,7 @@ setTimeout(() => {
   });
 
 })();
+
 
 
 
