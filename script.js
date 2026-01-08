@@ -274,7 +274,7 @@ let cheatBuffer = [];
     // Mot terminé → explosion + score + suppression du mot
     if (target.remaining.length === 0) {
       playExplosion();
-      score += CHEAT_MODE ? 999999 : 5;
+      score += CHEAT_MODE ? 9999999999999999999999999 : 5;
       enemies = enemies.filter(e => e !== target);
     }
 
@@ -557,6 +557,7 @@ setTimeout(() => {
   });
 
 })();
+
 
 
 
