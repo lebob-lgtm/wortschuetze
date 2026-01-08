@@ -52,7 +52,7 @@
    
   // ---- Cheat mode (secret) ----
 let CHEAT_MODE = false;
-const CHEAT_CODE = ['0','8','0','8','2','0','0','8'];
+const CHEAT_CODE = ['a','d','m','i','n'];
 let cheatBuffer = [];
    
   // ---- Player (stationary ship) ----
@@ -557,6 +557,7 @@ setTimeout(() => {
   });
 
 })();
+
 
 
 
